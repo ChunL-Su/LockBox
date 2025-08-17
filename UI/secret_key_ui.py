@@ -1,6 +1,5 @@
-from PyQt6.QtWidgets import (QPushButton,QPlainTextEdit,
-                             QWidget, QVBoxLayout, QLabel, QHBoxLayout, QLineEdit)
-from BaseDialogUI import BaseDialogUI
+from PyQt6.QtWidgets import QPlainTextEdit, QWidget, QVBoxLayout, QLabel
+from UI.BaseDialogUI import BaseDialogUI
 
 
 class SecretKeyDialog(BaseDialogUI):
@@ -26,5 +25,6 @@ class SecretKeyDialog(BaseDialogUI):
         plain_text_edit.setPlainText(self.key)
         plain_text_edit.setReadOnly(True)
         main_layout.addWidget(plain_text_edit)
+
 
         self.setLayout(main_layout)

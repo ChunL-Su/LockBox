@@ -1,6 +1,5 @@
 from PyQt6.QtWidgets import QLabel, QApplication
 from PyQt6.QtCore import QPropertyAnimation, QTimer, Qt
-
 import sys
 
 default_msg_style = """
@@ -40,6 +39,8 @@ class BaseAppMessage(QLabel):
 
         # 定时器用于在显示一段时间后淡出
         QTimer.singleShot(duration, self.fade_out)
+        # self.deleteLater()
+
 
     def fade_in(self):
         """淡入效果"""
@@ -62,5 +63,5 @@ class BaseAppMessage(QLabel):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    BaseAppMessage().show_message('哈哈哈hhhHHHH', 3000)
+    BaseAppMessage().show_message('哈哈哈hhhHHHH', 2500)
     sys.exit(app.exec())

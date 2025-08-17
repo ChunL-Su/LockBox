@@ -2,8 +2,8 @@ from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtWidgets import (QPushButton,
                              QWidget, QVBoxLayout, QLabel, QHBoxLayout, QLineEdit, QApplication)
 import sys
-from BaseDialogUI import BaseDialogUI
-from BaseAppMessage import BaseAppMessage
+from UI.BaseDialogUI import BaseDialogUI
+from UI.BaseAppMessage import BaseAppMessage
 
 
 class AddPasswordDialog(BaseDialogUI):

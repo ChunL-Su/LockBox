@@ -2,9 +2,9 @@ from PyQt6.QtWidgets import (QPushButton, QVBoxLayout, QLabel, QHBoxLayout, QLin
                              QFileDialog)
 from PyQt6.QtGui import QIcon
 from PyQt6.QtCore import Qt
-
 from configparser import ConfigParser
-from BaseDialogUI import BaseDialogUI
+from UI.BaseDialogUI import BaseDialogUI
+import os
 
 
 class SettingsDialog(BaseDialogUI):
@@ -49,6 +49,7 @@ class SettingsDialog(BaseDialogUI):
     def accept(self):
         print("accepted")
 
+
     def reject(self):
         print("rejected")
 
@@ -56,7 +57,15 @@ class SettingsDialog(BaseDialogUI):
         """打开文件夹选择对话框"""
         path = QFileDialog.getExistingDirectory(self, "选择文件夹")
         if path:
+            secret_key_file = 'k.skf'
             self.path_input.setText(path)
+            file_path = os.path.join(path, secret_key_file)
+            try:
+                with open(file_path, 'x') as f:  # 'x' 表示独占创建模式
+                    pass
+            except FileExistsError:
+                print("文件已存在，创建失败")
+
 
     def validate_path(self):
         """检查路径是否有效"""
